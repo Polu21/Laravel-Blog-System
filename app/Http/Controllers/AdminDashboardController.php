@@ -26,7 +26,7 @@ class AdminDashboardController extends Controller
      */
     public function create()
     {
-        //
+        $data = fhjfgjhfkhk;
     }
 
     /**
