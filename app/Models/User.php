@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Blog::class, 'created_by');
     }
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class, 'created_by');
+    }
 }

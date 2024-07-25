@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,8 @@ Route::post('/user/register', [RegisterController::class, 'create'])->name('regi
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'loginPost'])->name('login.post');
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+Route::put('/profile/{id}/update', [ProfileController::class, 'imageUpdate'])->name('update.profile');
+Route::post('/change/password', [ProfileController::class, 'ChangePassword'])->name('change.password');
 
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.index');
 Route::get('/blog/index', [BlogController::class, 'index'])->name('blog.index');
@@ -40,6 +43,13 @@ Route::post('/blog/create', [BlogController::class, 'create'])->name('blog.creat
 Route::put('/blog/{id}/update', [BlogController::class, 'update'])->name('blog.update');
 Route::get('/blog/{id}/edit', [BlogController::class, 'edit'])->name('blog.edit');
 Route::get('/blog/{id}/delete', [BlogController::class, 'destroy'])->name('blog.delete');
+
+Route::get('/product/index', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product/create', [ProductController::class, 'list'])->name('product.create');
+Route::post('/product/store', [ProductController::class, 'create'])->name('product.store');
+Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+Route::put('/product/{id}/update', [ProductController::class, 'update'])->name('product.update');
+Route::get('/product/{id}/delete', [ProductController::class, 'destroy'])->name('product.delete');
 
 // Frontent Route //
 Route::get('/frontend/dashboard', [DashboardController::class, 'index'])->name('frontend.index');

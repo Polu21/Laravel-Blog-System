@@ -10,6 +10,7 @@
         <ul>
         <li><a href="{{ route("frontend.index") }}">Homepage</a></li>
         <li class="current-menu-item"><a href="{{ route("blog.list") }}">Articles</a></li>
+        <li class="current-menu-item"><a href="{{ route("product.index") }}">Product</a></li>
         @if (Auth::check())
         <li class="current-menu-item"><a href="{{ route("login") }}">Login</a></li>
         @else

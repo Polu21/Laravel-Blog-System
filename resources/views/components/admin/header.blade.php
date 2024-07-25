@@ -10,11 +10,25 @@
         <ul>
         <li><a href="{{ route("dashboard.index") }}">Homepage</a></li>
         <li class="current-menu-item"><a href="{{ route("blog.index") }}">Articles</a></li>
-        {{-- <li class="current-menu-item"><a href="{{ route("user.register") }}">Register/login</a></li> --}}
+        <li class="current-menu-item"><a href="{{ route("product.index") }}">Product</a></li>
+
+        {{-- @if (Auth::check())
+        <li class="current-menu-item"><a href="{{ route("login") }}">Login</a></li>
+        @else
+        <li class="current-menu-item"><a href="{{ route("register.index") }}">Register</a></li>
+        @endif --}}
         @if (Auth::check())
-        <li class="current-menu-item"><a href="{{ route("profile") }}">
-            <img src="{{ asset('assets/frontend/images/user-profile-icon-free-vector.jpg') }}" width="50" height="50">Hi {{ auth()->user()->name }}</a>
-        </li>
+            <li class="current-menu-item"><a href="{{ route("profile") }}">
+                @if (auth()->user()->profile_image)
+                <img src="{{ asset('upload/profileImages/' . auth()->user()->profile_image) }}"alt="" width="100" height="100" />
+                @else
+                    <img src="{{ asset('assets/frontend/images/user-profile-icon-free-vector.jpg') }}" width="50" height="50">Hi {{ auth()->user()->name }}</a>
+
+                @endif
+                Hi {{ auth()->user()->name }}</a>
+            </li>
+        @else
+            <li class="current-menu-item"><a href="{{ route("login") }}">Login</a></li>
         @endif
         </ul>
     </div>
