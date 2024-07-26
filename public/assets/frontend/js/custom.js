@@ -1,7 +1,7 @@
 function menu_open() {
-    jQuery(".main-menu").css({"transform":"translateX(0)"}) 
+    jQuery(".main-menu").css({"transform":"translateX(0)"})
 }
-function menu_close() { 
+function menu_close() {
     jQuery(".main-menu").css({"transform":"translateX(320px)"})
 }
 
@@ -31,7 +31,7 @@ jQuery('.main-menu li a').click(function() {
         jQuery("header li.menu-item-has-children").append('<div class="dropdown-icon-menu"></div>');
         jQuery(".main-menu.mobile-menu .sub-menu").hide();
         jQuery("header .sub-menu").hide();
-        jQuery(document).on('click', '.dropdown-icon-menu', function(){ 
+        jQuery(document).on('click', '.dropdown-icon-menu', function(){
           jQuery(this).prev(".sub-menu").slideToggle();
           jQuery(this).toggleClass('active');
       });}
@@ -50,7 +50,7 @@ jQuery('.main-menu li a').click(function() {
                 slidesToShow: 3,
               }
           },
-    
+
           {
               breakpoint: 992,
               settings: {
@@ -91,7 +91,7 @@ jQuery('.main-menu li a').click(function() {
               slidesToShow: 4,
             }
         },
-  
+
         {
             breakpoint: 992,
             settings: {
@@ -123,5 +123,49 @@ jQuery('.main-menu li a').click(function() {
             }
         }
     ]
-  });
+    });
+
+    const imgs = document.querySelectorAll('.img-select a');
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+    imgItem.addEventListener('click', (event) => {
+        event.preventDefault();
+        imgId = imgItem.dataset.id;
+        slideImage();
+    });
 });
+
+function slideImage(){
+    const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+    document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+}
+
+window.addEventListener('resize', slideImage);
+});
+
+const imgs = document.querySelectorAll(".img-select a");
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+    imgItem.addEventListener("click", (event) => {
+        event.preventDefault();
+        imgId = imgItem.dataset.id;
+        slideImage();
+    });
+});
+
+function slideImage() {
+    const displayWidth = document.querySelector(
+        ".img-showcase img:first-child"
+    ).clientWidth;
+
+    document.querySelector(".img-showcase").style.transform = `translateX(${
+        -(imgId - 1) * displayWidth
+    }px)`;
+}
+
+window.addEventListener("resize", slideImage);

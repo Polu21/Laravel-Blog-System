@@ -7,7 +7,7 @@
 						<h2>Manage <b>Blogs</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="{{ route("product.create") }}" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+						<a href="{{ route("product.create.view") }}" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
 						{{-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a> --}}
 					</div>
                 </div>
@@ -40,7 +40,7 @@
                         <td>{{ $product->description }}</td>
                         <td>@if ($product->feature_image)
                             <img src="{{ asset('upload/productImages/'.$product->feature_image) }}"
-                                alt="{{ $product->title }}" width="200" height="200" />
+                                alt="{{ $product->title }}" width="400" height="200" />
                             @else
                             <p class="text-muted fw-normal">No image uploaded.</p>
                             @endif

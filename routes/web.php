@@ -46,6 +46,7 @@ Route::get('/blog/{id}/delete', [BlogController::class, 'destroy'])->name('blog.
 
 Route::get('/product/index', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/create', [ProductController::class, 'list'])->name('product.create');
+Route::get('/product/create/view', [ProductController::class, 'createView'])->name('product.create.view');
 Route::post('/product/store', [ProductController::class, 'create'])->name('product.store');
 Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
 Route::put('/product/{id}/update', [ProductController::class, 'update'])->name('product.update');
@@ -57,3 +58,5 @@ Route::get('/blog/list', [BlogController::class, 'list'])->name('blog.list');
 Route::get('/blog/{id}/show', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/post', [ContactController::class, 'store'])->name('contact.create');
+Route::get('/product/view', [ProductController::class, 'view'])->name('product.view');
+Route::get('/product/{id}/details', [ProductController::class, 'productDetails'])->name('product.details');

@@ -16,6 +16,19 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function createView()
+    {
+
+        return view('product.create');
+    }
+
+
+    public function view()
+    {
+        $products = Product::all();
+        return view('components/frontend/product-show', compact('products'));
+    }
+
     public function index()
     {
         $products = Product::all();
@@ -26,7 +39,7 @@ class ProductController extends Controller
     public function list()
     {
         $products = Product::all();
-        return view('product/create', compact('products'));
+        return view('components/frontend/product-show', compact('products'));
     }
     /**
      * Show the form for creating a new resource.
@@ -78,7 +91,14 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('components/frontend/product-show', compact('product'));
+    }
+
+    public function productDetails($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('components/frontend/product-details', compact('product'));
     }
 
     /**
